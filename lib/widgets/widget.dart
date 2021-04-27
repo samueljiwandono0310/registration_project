@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:registration_project/constants/constant.dart';
 
 class WigetMaterial {
-  static Widget registrationStepNumber({@required Color color}) {
+  static Widget registrationStepNumber({@required double marginTop, @required int activateButton, @required double paddingTop}) {
     return Container(
-      margin: EdgeInsets.only(top: Constant.size50),
-      padding: EdgeInsets.only(top: Constant.size30),
+      margin: EdgeInsets.only(top: marginTop),
+      padding: EdgeInsets.only(top: paddingTop),
       child: Stack(
         alignment: Alignment.center,
         children: [
           Container(
             margin:
                 EdgeInsets.only(left: Constant.size30, right: Constant.size30),
-            height: Constant.size5,
+            height: 2.5,
             width: double.infinity,
             color: Colors.black,
           ),
@@ -21,10 +21,10 @@ class WigetMaterial {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              circleNumber(numberOfValue: "1"),
-              circleNumber(numberOfValue: "2"),
-              circleNumber(numberOfValue: "3"),
-              circleNumber(numberOfValue: "4"),
+              circleNumber(numberOfValue: "1", activeStep: activateButton >= 1 ? true :  false),
+              circleNumber(numberOfValue: "2", activeStep: activateButton >= 2 ? true :  false),
+              circleNumber(numberOfValue: "3", activeStep: activateButton >= 3 ? true :  false),
+              circleNumber(numberOfValue: "4", activeStep: activateButton >= 4 ? true :  false),
             ],
           ),
         ],
@@ -32,13 +32,15 @@ class WigetMaterial {
     );
   }
 
-  static Widget circleNumber({@required String numberOfValue}) {
+  static Widget circleNumber(
+      {@required String numberOfValue, @required bool activeStep}) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: !activeStep ? Colors.white : Colors.green,
           shape: BoxShape.circle,
           border: Border.all(color: Colors.black)),
       child: Container(
+        
         margin: EdgeInsets.all(Constant.size20),
         child: Text(
           numberOfValue,

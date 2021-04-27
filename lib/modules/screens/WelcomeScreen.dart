@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:registration_project/clip_path/clip_path.dart';
+import 'package:registration_project/constants/constant.dart';
 import 'package:registration_project/widgets/widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       clipper: CustomClipPath(),
                     ),
                   ),
-                  WigetMaterial.registrationStepNumber(color: Colors.green),
+                  WigetMaterial.registrationStepNumber(activateButton: 0, marginTop: Constant.size30, paddingTop: Constant.size30),
                   Align(
                     alignment: Alignment.center,
                     child: Container(
@@ -186,6 +187,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       setState(() {
         _errorEmailValidator = null;
       });
+
+      Future.delayed(Duration(seconds: 2));
+      Navigator.pushNamedAndRemoveUntil(context, 'password-screen', (Route<dynamic> route) => false);
     }
   }
 }

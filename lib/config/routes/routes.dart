@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:registration_project/modules/screens/PasswordScreen.dart';
 import 'package:registration_project/modules/screens/WelcomeScreen.dart';
 
 class NavigationRoutes {
@@ -8,6 +9,8 @@ class NavigationRoutes {
      switch(settings.name) {
        case 'welcome-screen':
        return MaterialPageRoute(builder: (_) => WelcomeScreen());
+       case 'password-screen':
+       return MaterialPageRoute(builder: (_) => PasswordScreen());
        default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
