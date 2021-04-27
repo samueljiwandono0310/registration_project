@@ -9,7 +9,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  final _emailFormKey = GlobalKey<FormState>();
   TextEditingController _emailController = new TextEditingController();
   String _errorEmailValidator;
 
@@ -113,37 +112,30 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                             child: Container(
                               margin: EdgeInsets.all(10.0),
-                              child: Form(
-                                key: _emailFormKey,
-                                child: TextFormField(
-                                  keyboardType: TextInputType.emailAddress,
-                                  autocorrect: true,
-                                  controller: _emailController,
-                                  validator: (val) =>
-                                      val.isEmpty || !val.contains("@")
-                                          ? "enter a valid eamil"
-                                          : null,
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter Your Email Here...',
-                                    prefixIcon: Icon(Icons.email),
-                                    hintStyle: TextStyle(color: Colors.grey),
-                                    filled: true,
-                                    errorText: _errorEmailValidator == null
-                                        ? null
-                                        : _errorEmailValidator,
-                                    fillColor: Colors.white70,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(12.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.green, width: 2),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.green, width: 2),
-                                    ),
+                              child: TextFormField(
+                                keyboardType: TextInputType.emailAddress,
+                                autocorrect: true,
+                                controller: _emailController,
+                                decoration: InputDecoration(
+                                  hintText: 'Email',
+                                  prefixIcon: Icon(Icons.email),
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  filled: true,
+                                  errorText: _errorEmailValidator == null
+                                      ? null
+                                      : _errorEmailValidator,
+                                  fillColor: Colors.white70,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.green, width: 2),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.green, width: 2),
                                   ),
                                 ),
                               ),
