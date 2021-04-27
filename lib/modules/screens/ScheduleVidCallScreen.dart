@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:registration_project/constants/constant.dart';
 import 'package:registration_project/helpers/date_formatter.dart';
 import 'package:registration_project/widgets/widget.dart';
 
@@ -17,7 +18,7 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
     return Scaffold(
       backgroundColor: Color(0xFF5658ff),
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: Constant.size0,
         leading: Icon(Icons.arrow_back),
         backgroundColor: Colors.transparent,
         title: Text("Create Account"),
@@ -30,18 +31,16 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    WigetMaterial.registrationStepNumber(
-                        activateButton: 3, marginTop: 0.0, paddingTop: 0.0),
+                    WigetMaterial.registrationStepNumber(activateButton: 3, marginTop: Constant.size0, paddingTop: Constant.size0),
                     Container(
-                      margin: EdgeInsets.only(left: 20.0, top: 8.0),
+                      margin: EdgeInsets.only(left: Constant.size20, top: Constant.size8),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        border:
-                            Border.all(color: Colors.blueAccent, width: 10.0),
+                        border: Border.all(color: Colors.blueAccent, width: Constant.size10),
                       ),
                       child: Container(
-                        margin: EdgeInsets.all(8.0),
+                        margin: EdgeInsets.all(Constant.size8),
                         child: Icon(
                           Icons.calendar_today_rounded,
                           color: Colors.blue,
@@ -49,24 +48,24 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 20.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size20),
                       child: Text(
                         "Schedule Video Call",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16.0),
+                            fontSize: Constant.size16),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 10.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size10),
                       child: Text(
                         "Choose the date and time that you preferred. we\nwill send a link via email to make a video call on\nthe scheduled date and time",
                         style: TextStyle(
                             height: 1.5,
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 14.0),
+                            fontSize: Constant.size14),
                       ),
                     ),
                     InkWell(
@@ -86,13 +85,12 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                             });
                       },
                       child: Container(
-                        margin:
-                            EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
+                        margin: EdgeInsets.only(left: Constant.size30, right: Constant.size30, top: Constant.size30),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(
-                            10.0,
+                            Constant.size10,
                           ),
                         ),
                         child: Container(
@@ -100,14 +98,12 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 50.0,
+                                height: Constant.size50,
                                 width: MediaQuery.of(context).size.width / 1.4,
                                 child: Container(
-                                  margin:
-                                      EdgeInsets.only(top: 10.0, left: 20.0),
+                                  margin: EdgeInsets.only(top: Constant.size10, left: Constant.size20),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
@@ -115,20 +111,17 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                                           "Date",
                                           style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 10.0,
+                                            fontSize: Constant.size10,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 2.0),
-                                        child: Text(
-                                          _dateValue.isEmpty
-                                              ? "- Choose Date -"
-                                              : _dateValue,
+                                        margin: EdgeInsets.only(top: Constant.size2),
+                                        child: Text(_dateValue.isEmpty ? "- Choose Date -" : _dateValue,
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: Constant.size14,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -138,8 +131,8 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                                 ),
                               ),
                               Container(
-                                height: 50.0,
-                                width: 50.0,
+                                height: Constant.size50,
+                                width: Constant.size50,
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_down,
@@ -161,20 +154,18 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                                   mode: CupertinoDatePickerMode.time,
                                   onDateTimeChanged: (DateTime time) {
                                     setState(() {
-                                      _timeValue =
-                                          "${time.hour}:${time.minute}";
+                                      _timeValue = "${time.hour}:${time.minute}";
                                     });
                                   }));
                             });
                       },
                       child: Container(
-                        margin:
-                            EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
+                        margin: EdgeInsets.only(left: Constant.size30, right: Constant.size30, top: Constant.size30),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(
-                            10.0,
+                            Constant.size10,
                           ),
                         ),
                         child: Container(
@@ -182,14 +173,12 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 50.0,
+                                height: Constant.size50,
                                 width: MediaQuery.of(context).size.width / 1.4,
                                 child: Container(
-                                  margin:
-                                      EdgeInsets.only(top: 10.0, left: 20.0),
+                                  margin: EdgeInsets.only(top: Constant.size10, left: Constant.size20),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
@@ -197,20 +186,17 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                                           "Time",
                                           style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 10.0,
+                                            fontSize: Constant.size10,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 2.0),
-                                        child: Text(
-                                          _timeValue.isEmpty
-                                              ? "- Choose Time -"
-                                              : _timeValue,
+                                        margin: EdgeInsets.only(top: Constant.size2),
+                                        child: Text(_timeValue.isEmpty ? "- Choose Time -" : _timeValue,
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: Constant.size14,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -220,8 +206,8 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                                 ),
                               ),
                               Container(
-                                height: 50.0,
-                                width: 50.0,
+                                height: Constant.size50,
+                                width: Constant.size50,
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_down,
@@ -235,10 +221,10 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 10.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size10),
                       child: Text(
                         _error,
-                        style: TextStyle(color: Colors.white, fontSize: 12.0),
+                        style: TextStyle(color: Colors.white, fontSize: Constant.size12),
                       ),
                     )
                   ],
@@ -246,8 +232,8 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                 Container(
                   margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height / 6.5,
-                    left: 30.0,
-                    right: 30.0,
+                    left: Constant.size30,
+                    right: Constant.size30,
                   ),
                   child: InkWell(
                     onTap: () {
@@ -264,9 +250,9 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueAccent,
-                          borderRadius: BorderRadius.circular(8.0)),
+                          borderRadius: BorderRadius.circular(Constant.size8)),
                       width: double.infinity,
-                      height: 50.0,
+                      height: Constant.size50,
                       child: Center(
                         child: Text(
                           "Next",
@@ -289,7 +275,7 @@ class _ScheduleVidCallScreenState extends State<ScheduleVidCallScreen> {
 
   Widget _buildBottomPicker(Widget picker) {
     return Container(
-      height: 130.0,
+      height: Constant.size130,
       padding: const EdgeInsets.only(top: 6.0),
       color: CupertinoColors.white,
       child: DefaultTextStyle(
