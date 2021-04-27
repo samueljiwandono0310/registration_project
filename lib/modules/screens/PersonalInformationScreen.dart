@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:registration_project/constants/constant.dart';
 import 'package:registration_project/model/dummy_data.dart';
 import 'package:registration_project/widgets/widget.dart';
 
@@ -18,7 +19,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
     return Scaffold(
       backgroundColor: Color(0xFF5658ff),
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: Constant.size0,
         leading: Icon(Icons.arrow_back),
         backgroundColor: Colors.transparent,
         title: Text("Create Account"),
@@ -31,27 +32,26 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    WigetMaterial.registrationStepNumber(
-                        activateButton: 2, marginTop: 0.0, paddingTop: 0.0),
+                    WigetMaterial.registrationStepNumber(activateButton: 2, marginTop: Constant.size0, paddingTop: Constant.size0),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 30.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size30),
                       child: Text(
                         "Personal Information",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16.0),
+                            fontSize: Constant.size16),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 10.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size10),
                       child: Text(
                         "please fill in the information below and your goal\nfor digital saving.",
                         style: TextStyle(
                             height: 1.5,
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 14.0),
+                            fontSize: Constant.size14),
                       ),
                     ),
                     InkWell(
@@ -59,18 +59,16 @@ class _PersonalInformationState extends State<PersonalInformation> {
                         showCupertinoModalPopup(
                             context: context,
                             builder: (BuildContext contex) {
-                              return _buildPickerInterface(
-                                  DummyData.dataGoalActivation, "goal");
+                              return _buildPickerInterface(DummyData.dataGoalActivation, "goal");
                             });
                       },
                       child: Container(
-                        margin:
-                            EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
+                        margin: EdgeInsets.only(left: Constant.size30, right: Constant.size30, top: Constant.size30),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(
-                            10.0,
+                            Constant.size10,
                           ),
                         ),
                         child: Container(
@@ -78,14 +76,12 @@ class _PersonalInformationState extends State<PersonalInformation> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 50.0,
+                                height: Constant.size50,
                                 width: MediaQuery.of(context).size.width / 1.4,
                                 child: Container(
-                                  margin:
-                                      EdgeInsets.only(top: 10.0, left: 20.0),
+                                  margin: EdgeInsets.only(top: Constant.size10, left: Constant.size20),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
@@ -93,20 +89,17 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                           "Goal for activation",
                                           style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 10.0,
+                                            fontSize: Constant.size10,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 2.0),
-                                        child: Text(
-                                          _goalActivationValue.isNotEmpty
-                                              ? _goalActivationValue
-                                              : "- Choose Option -",
+                                        margin: EdgeInsets.only(top: Constant.size2),
+                                        child: Text(_goalActivationValue.isNotEmpty ? _goalActivationValue : "- Choose Option -",
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: Constant.size14,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -116,8 +109,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                 ),
                               ),
                               Container(
-                                height: 50.0,
-                                width: 50.0,
+                                height: Constant.size50,
+                                width: Constant.size50,
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_down,
@@ -135,18 +128,16 @@ class _PersonalInformationState extends State<PersonalInformation> {
                         showCupertinoModalPopup(
                             context: context,
                             builder: (BuildContext contex) {
-                              return _buildPickerInterface(
-                                  DummyData.dataMontlyIncome, "monthlyIncome");
+                              return _buildPickerInterface(DummyData.dataMontlyIncome, "monthlyIncome");
                             });
                       },
                       child: Container(
-                        margin:
-                            EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
+                        margin: EdgeInsets.only(left: Constant.size30, right: Constant.size30, top: Constant.size30),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(
-                            10.0,
+                            Constant.size10,
                           ),
                         ),
                         child: Container(
@@ -154,14 +145,12 @@ class _PersonalInformationState extends State<PersonalInformation> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 50.0,
+                                height: Constant.size50,
                                 width: MediaQuery.of(context).size.width / 1.4,
                                 child: Container(
-                                  margin:
-                                      EdgeInsets.only(top: 10.0, left: 20.0),
+                                  margin: EdgeInsets.only(top: Constant.size10, left: Constant.size20),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
@@ -169,20 +158,17 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                           "Monthly Income",
                                           style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 10.0,
+                                            fontSize: Constant.size10,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 2.0),
-                                        child: Text(
-                                          _monthlyIncome.isNotEmpty
-                                              ? _monthlyIncome
-                                              : "- Choose Option -",
+                                        margin: EdgeInsets.only(top: Constant.size2),
+                                        child: Text(_monthlyIncome.isNotEmpty ? _monthlyIncome : "- Choose Option -",
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: Constant.size14,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -192,8 +178,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                 ),
                               ),
                               Container(
-                                height: 50.0,
-                                width: 50.0,
+                                height: Constant.size50,
+                                width: Constant.size50,
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_down,
@@ -211,19 +197,16 @@ class _PersonalInformationState extends State<PersonalInformation> {
                         showCupertinoModalPopup(
                             context: context,
                             builder: (BuildContext contex) {
-                              return _buildPickerInterface(
-                                  DummyData.dataMontlyExpance,
-                                  "monthlyExpense");
+                              return _buildPickerInterface(DummyData.dataMontlyExpance, "monthlyExpense");
                             });
                       },
                       child: Container(
-                        margin:
-                            EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
+                        margin: EdgeInsets.only(left: Constant.size30, right: Constant.size30, top: Constant.size30),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(
-                            10.0,
+                            Constant.size10,
                           ),
                         ),
                         child: Container(
@@ -231,14 +214,12 @@ class _PersonalInformationState extends State<PersonalInformation> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 50.0,
+                                height: Constant.size50,
                                 width: MediaQuery.of(context).size.width / 1.4,
                                 child: Container(
-                                  margin:
-                                      EdgeInsets.only(top: 10.0, left: 20.0),
+                                  margin: EdgeInsets.only(top: Constant.size10, left: Constant.size20),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
@@ -246,20 +227,17 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                           "Montly expense",
                                           style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 10.0,
+                                            fontSize: Constant.size10,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 2.0),
-                                        child: Text(
-                                          _monthlyExpense.isNotEmpty
-                                              ? _monthlyExpense
-                                              : "- Choose Option -",
+                                        margin: EdgeInsets.only(top: Constant.size2),
+                                        child: Text(_monthlyExpense.isNotEmpty ? _monthlyExpense : "- Choose Option -",
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: Constant.size14,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -269,8 +247,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                 ),
                               ),
                               Container(
-                                height: 50.0,
-                                width: 50.0,
+                                height: Constant.size50,
+                                width: Constant.size50,
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_down,
@@ -284,10 +262,10 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 10.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size10),
                       child: Text(
                         _error ? "* this question is requeired" : "",
-                        style: TextStyle(color: Colors.white, fontSize: 12.0),
+                        style: TextStyle(color: Colors.white, fontSize: Constant.size12),
                       ),
                     )
                   ],
@@ -295,14 +273,12 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 Container(
                   margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height / 6.5,
-                    left: 30.0,
-                    right: 30.0,
+                    left: Constant.size30,
+                    right: Constant.size30,
                   ),
                   child: InkWell(
                     onTap: () {
-                      if (_goalActivationValue.isNotEmpty &&
-                          _monthlyExpense.isNotEmpty &&
-                          _monthlyIncome.isNotEmpty) {
+                      if (_goalActivationValue.isNotEmpty && _monthlyExpense.isNotEmpty && _monthlyIncome.isNotEmpty) {
                         setState(() {
                           _error = false;
                         });
@@ -319,7 +295,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           color: Colors.blueAccent,
                           borderRadius: BorderRadius.circular(8.0)),
                       width: double.infinity,
-                      height: 50.0,
+                      height: Constant.size50,
                       child: Center(
                         child: Text(
                           "Next",
@@ -341,11 +317,10 @@ class _PersonalInformationState extends State<PersonalInformation> {
   }
 
   Widget _buildPickerInterface(List<String> data, String typePicker) {
-    final FixedExtentScrollController scrollController =
-        FixedExtentScrollController(initialItem: 0);
+    final FixedExtentScrollController scrollController = FixedExtentScrollController(initialItem: 0);
     return _buildBottomPicker(CupertinoPicker(
       scrollController: scrollController,
-      itemExtent: 32.0,
+      itemExtent: Constant.size32,
       backgroundColor: CupertinoColors.white,
       children: List<Widget>.generate(data.length, (int index) {
         return Center(
@@ -372,7 +347,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
 
   Widget _buildBottomPicker(Widget picker) {
     return Container(
-      height: 130.0,
+      height: Constant.size130,
       padding: const EdgeInsets.only(top: 6.0),
       color: CupertinoColors.white,
       child: DefaultTextStyle(
