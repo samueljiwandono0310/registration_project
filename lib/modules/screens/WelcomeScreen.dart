@@ -15,12 +15,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Color(0xFF5658ff),
-        statusBarIconBrightness: Brightness.dark,
-      ),
-    );
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Constant.basicColor, statusBarIconBrightness: Brightness.dark));
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -34,22 +29,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: ClipPath(
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height / 2.8,
-                        color: Color(0xFF5658ff),
+                        height: MediaQuery.of(context).size.height / Constant.size2Point8,
+                        color: Constant.basicColor,
                       ),
                       clipper: CustomClipPath(),
                     ),
                   ),
-                  WigetMaterial.registrationStepNumber(activateButton: 0, marginTop: Constant.size30, paddingTop: Constant.size30),
+                  WigetMaterial.registrationStepNumber(
+                      activateButton: 0,
+                      marginTop: Constant.size30,
+                      paddingTop: Constant.size30),
                   Align(
                     alignment: Alignment.center,
                     child: Container(
-                      margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 4.0),
+                      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / Constant.size4),
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 10.0,
-                          left: 20.0,
-                          right: 20.0),
+                          top: MediaQuery.of(context).size.height / Constant.size10,
+                          left: Constant.size20,
+                          right: Constant.size20,
+                      ),
                       width: double.infinity,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -61,7 +59,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 36.0,
+                                fontSize: Constant.size36,
                               ),
                             ),
                           ),
@@ -71,7 +69,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 36.0,
+                                fontSize: Constant.size36,
                               ),
                               children: [
                                 TextSpan(
@@ -79,40 +77,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   style: TextStyle(
                                     color: Colors.blue[800],
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 36.0,
+                                    fontSize: Constant.size36,
                                   ),
                                 ),
                               ],
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 20.0),
+                            margin: EdgeInsets.only(top: Constant.size20),
                             width: double.infinity,
                             child: Text(
                               "Welcome to The Bank of The Future.\nManage and track your accounts on\nthe go.",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 18.0,
+                                fontSize: Constant.size18,
                               ),
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 30.0),
+                            margin: EdgeInsets.only(top: Constant.size30),
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(Constant.size10),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
                                   offset: Offset(0, 0),
-                                  blurRadius: 20.0,
+                                  blurRadius: Constant.size20,
                                 )
                               ],
                             ),
                             child: Container(
-                              margin: EdgeInsets.all(10.0),
+                              margin: EdgeInsets.all(Constant.size10),
                               child: TextFormField(
                                 keyboardType: TextInputType.emailAddress,
                                 autocorrect: true,
@@ -122,21 +120,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   prefixIcon: Icon(Icons.email),
                                   hintStyle: TextStyle(color: Colors.grey),
                                   filled: true,
-                                  errorText: _errorEmailValidator == null
-                                      ? null
-                                      : _errorEmailValidator,
+                                  errorText: _errorEmailValidator == null ? null : _errorEmailValidator,
                                   fillColor: Colors.white70,
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(12.0)),
+                                    borderRadius: BorderRadius.all(Radius.circular(Constant.size12)),
                                     borderSide: BorderSide(
-                                        color: Colors.green, width: 2),
+                                        color: Colors.green,
+                                        width: Constant.size2),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(Constant.size10)),
                                     borderSide: BorderSide(
-                                        color: Colors.green, width: 2),
+                                        color: Colors.green,
+                                        width: Constant.size2),
                                   ),
                                 ),
                               ),
@@ -149,7 +146,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
+                margin: EdgeInsets.only(top: Constant.size35, left: Constant.size20, right: Constant.size20),
                 child: InkWell(
                   onTap: () {
                     _validationEmail();
@@ -157,9 +154,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: Container(
                     alignment: Alignment.bottomCenter,
                     width: double.infinity,
-                    color: Color(0xFF5658ff),
+                    color: Constant.basicColor,
                     child: Container(
-                      margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                      margin: EdgeInsets.only(top: Constant.size20, bottom: Constant.size20),
                       child: Text(
                         "Next",
                         textAlign: TextAlign.center,
