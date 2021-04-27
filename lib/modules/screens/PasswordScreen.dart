@@ -133,7 +133,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                             setState(() {
                               _complexity = "Super Strong";
                             });
-                          } 
+                          }
                         },
                         controller: _passwordController,
                         obscureText: !_isShowPassword ? true : false,
@@ -163,7 +163,8 @@ class _PasswordScreenState extends State<PasswordScreen> {
                           hintStyle: TextStyle(color: Colors.grey),
                           filled: true,
                           fillColor: Colors.white,
-                          errorText: _isErrorInput ?"Wrong input password" : null,
+                          errorText:
+                              _isErrorInput ? "Wrong input password" : null,
                           enabledBorder: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(12.0)),
@@ -196,7 +197,9 @@ class _PasswordScreenState extends State<PasswordScreen> {
                           Container(
                             margin: EdgeInsets.only(left: 5.0),
                             child: Text(
-                              _passwordController.text.isEmpty ? "" :_complexity ,
+                              _passwordController.text.isEmpty
+                                  ? ""
+                                  : _complexity,
                               style: TextStyle(
                                   color: Colors.yellow,
                                   fontSize: 14.0,
@@ -316,14 +319,19 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   ),
                   child: InkWell(
                     onTap: () {
-                      if (_isCharacter && _isLowercase && _isUppercase && _isNumber) {
+                      if (_isCharacter &&
+                          _isLowercase &&
+                          _isUppercase &&
+                          _isNumber) {
                         setState(() {
-                                                  _isErrorInput = false;
-                                                });
+                          _isErrorInput = false;
+                        });
+                        Future.delayed(Duration(seconds: 2));
+                        Navigator.pushNamedAndRemoveUntil(context, 'personal-information-screen', (Route<dynamic> route) => false);
                       } else {
                         setState(() {
-                                                  _isErrorInput = true;
-                                                });
+                          _isErrorInput = true;
+                        });
                       }
                     },
                     child: Container(
