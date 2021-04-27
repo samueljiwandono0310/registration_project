@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:registration_project/constants/constant.dart';
 import 'package:registration_project/widgets/widget.dart';
 
 class PasswordScreen extends StatefulWidget {
@@ -18,9 +19,9 @@ class _PasswordScreenState extends State<PasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF5658ff),
+      backgroundColor: Constant.basicColor,
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: Constant.size0,
         leading: Icon(Icons.arrow_back),
         backgroundColor: Colors.transparent,
         title: Text("Create Account"),
@@ -34,30 +35,37 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     WigetMaterial.registrationStepNumber(
-                        activateButton: 1, marginTop: 0.0, paddingTop: 0.0),
+                      activateButton: 1,
+                      marginTop: Constant.size0,
+                      paddingTop: Constant.size0,
+                    ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 30.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size30),
                       child: Text(
                         "Create Password",
                         style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16.0),
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: Constant.size16,
+                        ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 30.0, top: 10.0),
+                      margin: EdgeInsets.only(left: Constant.size30, top: Constant.size10),
                       child: Text(
                         "Password will be used to login to account",
                         style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0),
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: Constant.size14,
+                        ),
                       ),
                     ),
                     Container(
-                      margin:
-                          EdgeInsets.only(top: 20.0, left: 30.0, right: 30.0),
+                      margin: EdgeInsets.only(
+                          top: Constant.size20,
+                          left: Constant.size30,
+                          right: Constant.size30),
                       child: TextFormField(
                         keyboardType: TextInputType.visiblePassword,
                         autocorrect: true,
@@ -92,12 +100,12 @@ class _PasswordScreenState extends State<PasswordScreen> {
                             });
                           }
 
-                          if (!validLowerCase.hasMatch(value)) {                      
+                          if (!validLowerCase.hasMatch(value)) {
                             setState(() {
                               _isLowercase = false;
                             });
                           }
-                          if (!validUpperCase.hasMatch(value)) {                        
+                          if (!validUpperCase.hasMatch(value)) {
                             setState(() {
                               _isUppercase = false;
                             });
@@ -136,7 +144,6 @@ class _PasswordScreenState extends State<PasswordScreen> {
                           hintText: 'Create password',
                           suffixIcon: InkWell(
                             onTap: () {
-                              print("object");
                               if (_isShowPassword) {
                                 setState(() {
                                   _isShowPassword = false;
@@ -147,37 +154,30 @@ class _PasswordScreenState extends State<PasswordScreen> {
                                 });
                               }
                             },
-                            child: Icon(
-                              _isShowPassword
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color:
-                                  _isShowPassword ? Colors.blue : Colors.grey,
+                            child: Icon(_isShowPassword ? Icons.visibility : Icons.visibility_off,
+                              color: _isShowPassword ? Colors.blue : Colors.grey,
                             ),
                           ),
                           hintStyle: TextStyle(color: Colors.grey),
                           filled: true,
                           fillColor: Colors.white,
-                          errorText:
-                              _isErrorInput ? "Wrong input password" : null,
+                          errorText: _isErrorInput ? "Wrong input password" : null,
                           enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.0)),
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.all(Radius.circular(Constant.size12)),
+                            borderSide: BorderSide(color: Colors.blue, width: Constant.size2),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0)),
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.all(Radius.circular(Constant.size10)),
+                            borderSide: BorderSide(color: Colors.blue, width: Constant.size2),
                           ),
                         ),
                       ),
                     ),
                     Container(
-                      margin:
-                          EdgeInsets.only(left: 30.0, top: 30.0, bottom: 20.0),
+                      margin: EdgeInsets.only(
+                          left: Constant.size30,
+                          top: Constant.size30,
+                          bottom: Constant.size20),
                       child: Row(
                         children: [
                           Container(
@@ -185,19 +185,16 @@ class _PasswordScreenState extends State<PasswordScreen> {
                               "Complexity:",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14.0,
+                                  fontSize: Constant.size14,
                                   fontWeight: FontWeight.w400),
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(left: 5.0),
-                            child: Text(
-                              _passwordController.text.isEmpty
-                                  ? ""
-                                  : _complexity,
+                            margin: EdgeInsets.only(left: Constant.size5),
+                            child: Text(_passwordController.text.isEmpty ? "" : _complexity,
                               style: TextStyle(
                                   color: Colors.yellow,
-                                  fontSize: 14.0,
+                                  fontSize: Constant.size14,
                                   fontWeight: FontWeight.w400),
                             ),
                           ),
@@ -205,52 +202,50 @@ class _PasswordScreenState extends State<PasswordScreen> {
                       ),
                     ),
                     Container(
-                      margin:
-                          EdgeInsets.only(top: 20.0, left: 30.0, right: 30.0),
+                      margin: EdgeInsets.only(
+                          top: Constant.size20,
+                          left: Constant.size30,
+                          right: Constant.size30),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          _isLowercase
-                              ? WigetMaterial.checkListIcon()
+                          _isLowercase ? WigetMaterial.checkListIcon()
                               : Container(
                                   child: Text(
                                     "a",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 24.0,
+                                        fontSize: Constant.size24,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
-                          _isUppercase
-                              ? WigetMaterial.checkListIcon()
+                          _isUppercase ? WigetMaterial.checkListIcon()
                               : Container(
                                   child: Text(
                                     "A",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 24.0,
+                                        fontSize: Constant.size24,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
-                          _isNumber
-                              ? WigetMaterial.checkListIcon()
+                          _isNumber ? WigetMaterial.checkListIcon()
                               : Container(
                                   child: Text(
                                     "123",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 24.0,
+                                        fontSize: Constant.size24,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
-                          _isCharacter
-                              ? WigetMaterial.checkListIcon()
+                          _isCharacter ? WigetMaterial.checkListIcon()
                               : Container(
                                   child: Text(
                                     "9+",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 24.0,
+                                        fontSize: Constant.size24,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 )
@@ -262,42 +257,42 @@ class _PasswordScreenState extends State<PasswordScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            margin: EdgeInsets.only(top: 10.0, left: 20.0),
+                            margin: EdgeInsets.only(top: Constant.size10, left: Constant.size20),
                             child: Text(
                               "Lowercase",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 10.0,
+                                  fontSize: Constant.size10,
                                   fontWeight: FontWeight.w500),
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10.0, right: 20.0),
+                            margin: EdgeInsets.only(top: Constant.size10, right: Constant.size20),
                             child: Text(
                               "Upercase",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 10.0,
+                                  fontSize: Constant.size10,
                                   fontWeight: FontWeight.w500),
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10.0, right: 20.0),
+                            margin: EdgeInsets.only(top: Constant.size10, right: Constant.size20),
                             child: Text(
                               "Number",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 10.0,
+                                  fontSize: Constant.size10,
                                   fontWeight: FontWeight.w500),
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10.0, right: 20.0),
+                            margin: EdgeInsets.only(top: Constant.size10, right: Constant.size20),
                             child: Text(
                               "Characters",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 10.0,
+                                  fontSize: Constant.size10,
                                   fontWeight: FontWeight.w500),
                             ),
                           )
@@ -308,16 +303,13 @@ class _PasswordScreenState extends State<PasswordScreen> {
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height / 4.0,
-                    left: 30.0,
-                    right: 30.0,
+                    top: MediaQuery.of(context).size.height / Constant.size4,
+                    left: Constant.size30,
+                    right: Constant.size30,
                   ),
                   child: InkWell(
                     onTap: () {
-                      if (_isCharacter &&
-                          _isLowercase &&
-                          _isUppercase &&
-                          _isNumber) {
+                      if (_isCharacter && _isLowercase && _isUppercase && _isNumber) {
                         setState(() {
                           _isErrorInput = false;
                         });
@@ -332,9 +324,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueAccent,
-                          borderRadius: BorderRadius.circular(8.0)),
+                          borderRadius: BorderRadius.circular(8.0),
+                      ),
                       width: double.infinity,
-                      height: 50.0,
+                      height: Constant.size50,
                       child: Center(
                         child: Text(
                           "Next",
