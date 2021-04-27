@@ -65,8 +65,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                           final validLowerCase = RegExp(r'^(?=.*[a-z])');
                           final validUpperCase = RegExp(r'^(?=.*[A-Z])');
                           final validNumber = RegExp(r'^(?=.*[1-9])');
-                          final validSpecialCharacters =
-                              RegExp(r'^(?=.*[@#$%^&+=*()-_!]).*$');
+                          final validSpecialCharacters = RegExp(r'^(?=.*?[!@#\$&*~])');
 
                           if (validLowerCase.hasMatch(value)) {
                             print("lowercase");
@@ -93,26 +92,22 @@ class _PasswordScreenState extends State<PasswordScreen> {
                             });
                           }
 
-                          if (!validLowerCase.hasMatch(value)) {
-                            print("lowercase");
+                          if (!validLowerCase.hasMatch(value)) {                      
                             setState(() {
                               _isLowercase = false;
                             });
                           }
-                          if (!validUpperCase.hasMatch(value)) {
-                            print("upercase");
+                          if (!validUpperCase.hasMatch(value)) {                        
                             setState(() {
                               _isUppercase = false;
                             });
                           }
                           if (!validNumber.hasMatch(value)) {
-                            print("number");
                             setState(() {
                               _isNumber = false;
                             });
                           }
                           if (!validSpecialCharacters.hasMatch(value)) {
-                            print("special character");
                             setState(() {
                               _isCharacter = false;
                             });
