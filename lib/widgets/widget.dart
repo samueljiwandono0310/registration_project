@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:registration_project/constants/constant.dart';
 
 class WigetMaterial {
-  static Widget registrationStepNumber({@required double marginTop, @required int activateButton, @required double paddingTop}) {
+  static Widget registrationStepNumber(
+      {@required double marginTop,
+      @required int activateButton,
+      @required double paddingTop}) {
     return Container(
       margin: EdgeInsets.only(top: marginTop),
       padding: EdgeInsets.only(top: paddingTop),
@@ -21,10 +24,18 @@ class WigetMaterial {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              circleNumber(numberOfValue: "1", activeStep: activateButton >= 1 ? true :  false),
-              circleNumber(numberOfValue: "2", activeStep: activateButton >= 2 ? true :  false),
-              circleNumber(numberOfValue: "3", activeStep: activateButton >= 3 ? true :  false),
-              circleNumber(numberOfValue: "4", activeStep: activateButton >= 4 ? true :  false),
+              circleNumber(
+                  numberOfValue: "1",
+                  activeStep: activateButton >= 1 ? true : false),
+              circleNumber(
+                  numberOfValue: "2",
+                  activeStep: activateButton >= 2 ? true : false),
+              circleNumber(
+                  numberOfValue: "3",
+                  activeStep: activateButton >= 3 ? true : false),
+              circleNumber(
+                  numberOfValue: "4",
+                  activeStep: activateButton >= 4 ? true : false),
             ],
           ),
         ],
@@ -40,7 +51,6 @@ class WigetMaterial {
           shape: BoxShape.circle,
           border: Border.all(color: Colors.black)),
       child: Container(
-        
         margin: EdgeInsets.all(Constant.size20),
         child: Text(
           numberOfValue,
@@ -48,6 +58,18 @@ class WigetMaterial {
               color: Colors.black,
               fontWeight: FontWeight.w600,
               fontSize: Constant.size20),
+        ),
+      ),
+    );
+  }
+
+  static Widget checkListIcon() {
+    return Container(
+      child: Container(
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.yellow),
+        child: Icon(
+          Icons.check,
+          color: Colors.white,
         ),
       ),
     );
