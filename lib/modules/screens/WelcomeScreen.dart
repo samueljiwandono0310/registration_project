@@ -3,7 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:registration_project/clip_path/clip_path.dart';
 import 'package:registration_project/widgets/widget.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
+  @override
+  _WelcomeScreenState createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  final _emailFormKey = GlobalKey<FormState>();
+  TextEditingController _emailController = new TextEditingController();
+  String _errorEmailValidator;
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -104,25 +113,37 @@ class WelcomeScreen extends StatelessWidget {
                             ),
                             child: Container(
                               margin: EdgeInsets.all(10.0),
-                              child: TextFormField(
-                                autocorrect: true,
-                                decoration: InputDecoration(
-                                  hintText: 'Enter Your Email Here...',
-                                  prefixIcon: Icon(Icons.email),
-                                  hintStyle: TextStyle(color: Colors.grey),
-                                  filled: true,
-                                  fillColor: Colors.white70,
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(12.0)),
-                                    borderSide: BorderSide(
-                                        color: Colors.green, width: 2),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    borderSide: BorderSide(
-                                        color: Colors.green, width: 2),
+                              child: Form(
+                                key: _emailFormKey,
+                                child: TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  autocorrect: true,
+                                  controller: _emailController,
+                                  validator: (val) =>
+                                      val.isEmpty || !val.contains("@")
+                                          ? "enter a valid eamil"
+                                          : null,
+                                  decoration: InputDecoration(
+                                    hintText: 'Enter Your Email Here...',
+                                    prefixIcon: Icon(Icons.email),
+                                    hintStyle: TextStyle(color: Colors.grey),
+                                    filled: true,
+                                    errorText: _errorEmailValidator == null
+                                        ? null
+                                        : _errorEmailValidator,
+                                    fillColor: Colors.white70,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(12.0)),
+                                      borderSide: BorderSide(
+                                          color: Colors.green, width: 2),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10.0)),
+                                      borderSide: BorderSide(
+                                          color: Colors.green, width: 2),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -138,7 +159,7 @@ class WelcomeScreen extends StatelessWidget {
                 margin: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
                 child: InkWell(
                   onTap: () {
-                    print("object");
+                    _validationEmail();
                   },
                   child: Container(
                     alignment: Alignment.bottomCenter,
@@ -162,5 +183,17 @@ class WelcomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _validationEmail() {
+    if (_emailController.text.isEmpty || !_emailController.text.contains("@")) {
+      setState(() {
+        _errorEmailValidator = "Please input the validate email";
+      });
+    } else {
+      setState(() {
+        _errorEmailValidator = null;
+      });
+    }
   }
 }
